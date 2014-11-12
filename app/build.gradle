@@ -21,5 +21,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    // TODO : to find out why AppTheme.NoActionBar theme does not work in lollipop version(21.0.0)
     compile 'com.android.support:appcompat-v7:21.0.0'
 }
