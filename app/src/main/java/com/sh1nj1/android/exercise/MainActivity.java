@@ -39,16 +39,6 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
             return true;
         }
-        else if(id == R.id.action_assetReader) {
-            Intent intent = new Intent(this, AssertReaderActivity.class);
-            startActivity(intent);
-            return true;
-        }
-        else if(id == R.id.action_imageLoader) {
-            Intent intent = new Intent(this, ImageLoaderActivity.class);
-            startActivity(intent);
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }

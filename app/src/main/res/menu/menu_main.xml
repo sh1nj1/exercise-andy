@@ -4,6 +4,4 @@
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_showNoActionbar" android:title="@string/showNoActionBar" />
-    <item android:id="@+id/action_assetReader" android:title="@string/assetReader" />
-    <item android:id="@+id/action_imageLoader" android:title="@string/imageLoader" />
 </menu>
