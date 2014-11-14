@@ -6,5 +6,6 @@
     <string name="action_settings">Settings</string>
     <string name="showNoActionBar">Show No ActionBar Activity</string>
     <string name="assetReader">Asset Reader</string>
+    <string name="imageLoader">Image Loader</string>
 
 </resources>
