@@ -7,6 +7,8 @@ import org.robolectric.annotation.Config;
 
 import java.io.File;
 
+import java.io.File;
+
 /**
  *
  * chk0ndanger
