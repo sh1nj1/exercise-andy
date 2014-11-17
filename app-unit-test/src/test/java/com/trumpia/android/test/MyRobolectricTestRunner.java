@@ -6,11 +6,15 @@ import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 import org.robolectric.res.Fs;
 
+import java.io.File;
+
 /**
  *
  * chk0ndanger
  */
 public class MyRobolectricTestRunner extends RobolectricTestRunner {
+
+    private static final String APP_MODULE_NAME = "app";
 
     /**
      * Creates a runner to run {@code testClass}. Looks in your working directory for your AndroidManifest.xml file
@@ -26,16 +30,33 @@ public class MyRobolectricTestRunner extends RobolectricTestRunner {
 
     @Override
     protected AndroidManifest getAppManifest(Config config) {
+
+        String userDir = System.getProperty("user.dir", "./");
+        File current = new File(userDir);
+        String prefix;
+        if (new File(current, APP_MODULE_NAME).exists()) {
+            System.out.println("Probably running on AndroidStudio");
+            prefix = "./" + APP_MODULE_NAME;
+        }
+        else if (new File(current.getParentFile(), APP_MODULE_NAME).exists()) {
+            System.out.println("Probably running on Console");
+            prefix = "../" + APP_MODULE_NAME;
+        }
+        else {
+            throw new IllegalStateException("Could not find app module, app module should be \"app\" directory in the project.");
+        }
+        System.setProperty("android.manifest", prefix + "/src/main/AndroidManifest.xml");
+        System.setProperty("android.resources", prefix + "/src/main/res");
+        System.setProperty("android.assets", prefix + "/src/androidTest/assets");
+
         String manifestProperty = System.getProperty("android.manifest");
         if (config.manifest().equals(Config.DEFAULT) && manifestProperty != null) {
             String resProperty = System.getProperty("android.resources");
             String assetsProperty = System.getProperty("android.assets");
-            AndroidManifest androidManifest = new AndroidManifest(
+            return new AndroidManifest(
                     Fs.fileFromPath(manifestProperty),
                     Fs.fileFromPath(resProperty),
                     Fs.fileFromPath(assetsProperty));
-            //androidManifest.setPackageName("com.justyoyo");
-            return androidManifest;
         }
         return super.getAppManifest(config);
     }
