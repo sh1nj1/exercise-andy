@@ -1,4 +1,3 @@
-import com.sh1nj1.android.exercise.MainActivity;
 import com.trumpia.android.test.MyRobolectricTestRunner;
 
 import junit.framework.Assert;
@@ -9,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowApplication;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +18,7 @@ import java.io.InputStream;
  *
  * chk0ndanger
  */
-@Config(manifest = "app/src/androidTest/AndroidManifest.xml")
+@Config
 @RunWith(MyRobolectricTestRunner.class)
 public class ReadAssetsTest {
 
@@ -34,7 +34,9 @@ public class ReadAssetsTest {
     @Test
     public void test_ToReadAssetsFileInAndroidTestContext() throws IOException {
 
-        InputStream input = Robolectric.getShadowApplication().getAssets().open("b.xml");
+        ShadowApplication application = Robolectric.getShadowApplication();
+        Assert.assertNotNull(application);
+        InputStream input = application.getAssets().open("b.xml");
         Assert.assertNotNull(input);
     }
 
