@@ -7,5 +7,7 @@
     <string name="showNoActionBar">Show No ActionBar Activity</string>
     <string name="assetReader">Asset Reader</string>
     <string name="imageLoader">Image Loader</string>
+    <string name="fullScreen">Full Screen</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -49,6 +49,11 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
             return true;
         }
+        else if(id == R.id.action_fullScreen) {
+            Intent intent = new Intent(this, FullScreenActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

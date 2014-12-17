@@ -6,4 +6,5 @@
     <item android:id="@+id/action_showNoActionbar" android:title="@string/showNoActionBar" />
     <item android:id="@+id/action_assetReader" android:title="@string/assetReader" />
     <item android:id="@+id/action_imageLoader" android:title="@string/imageLoader" />
+    <item android:id="@+id/action_fullScreen" android:title="@string/fullScreen" />
 </menu>

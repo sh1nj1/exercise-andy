@@ -28,6 +28,7 @@
             android:theme="@style/AppTheme.NoActionBar" android:label="@string/showNoActionBar"/>
         <activity android:name=".AssertReaderActivity" android:label="@string/assetReader"/>
         <activity android:name=".ImageLoaderActivity" android:label="@string/imageLoader"/>
+        <activity android:name=".FullScreenActivity" android:label="@string/fullScreen"/>
 
     </application>
 
